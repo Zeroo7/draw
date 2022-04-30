@@ -1,0 +1,160 @@
+* {
+    margin: auto;
+}
+
+body {
+    font-family: Manrope, cursive;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+.show-content {
+    z-index: 999;
+    position: absolute;
+    background-color: white;
+}
+
+/* canvas */
+
+canvas {
+    width: 99%;
+    height: 99%;
+    background-color: white;
+}
+
+#line-width, #color, #eraser, #pen {
+    position: fixed;
+    top: 1%;
+}
+
+#line-width {
+    right: calc(3em + 1.5%);
+    height: 1.8em;
+    width: calc(8em + 10%);
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(50, 50, 50, 0.3);
+}
+
+#line-width:focus {
+    outline: none;
+}
+
+#color {
+    right: 0.5em;
+    width: 2.5em;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(50, 50, 50, 0.3);
+}
+
+img:hover {
+    filter: brightness(90%);
+}
+
+#eraser {
+    left: 0.5em;
+    width: calc(2em + 1%);
+}
+
+#pen {
+    left: calc(3em + 1%);
+    width: calc(2em + 1%);
+}
+
+#close {
+    position: fixed;
+    width: calc(1.9em + 1%);
+    bottom: 0.5em;
+    left: 49%;
+}
+
+/* main */
+
+#main-page {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(135deg, rgb(274, 91, 161), rgb(241, 108, 89), rgb(236, 121, 29));
+}
+
+.heading {
+    padding-top: 12vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 30vh;
+}
+
+#blank {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    height: 22.2vh;
+    width: 100vw;
+    background-color: white;
+}
+
+.custom-shape-divider-bottom-1647374433 {
+    position: absolute;
+    bottom: 22vh;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1647374433 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 188px;
+    transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1647374433 .shape-fill {
+    fill: #FFFFFF;
+}
+
+button {
+    position: relative;
+    bottom: 9.1vh;
+    left: 1.8vw;
+    /* background-color: rgb(274, 91, 161); */
+    background: linear-gradient(90deg, rgb(226, 85, 167), rgb(241, 89, 89), rgb(186, 83, 186));
+    color: white;
+    width: 90px;
+    height: 30px;
+    border: double transparent;
+    border-radius: 40px;
+    box-shadow: 0 6px 10px rgba(50, 50, 50, 0.5);
+    font-size: 17px;
+    transition: ease-in-out 0.2s;
+}
+
+button:hover {
+    background: white;
+    color: rgb(274, 91, 161);
+    font-weight: 600;
+    border: double 2px;
+    cursor: pointer;
+}
+
+button:focus {
+    border: none;
+    background: linear-gradient(90deg, rgb(226, 85, 167), rgb(241, 89, 89), rgb(186, 83, 186));
+    color: white;
+}
+
+
+@media only screen and (max-width: 600px) {
+    span {
+        display: block;
+    }
+}
