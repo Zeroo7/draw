@@ -30,22 +30,24 @@ size()
 window.addEventListener('resize', size)
 
 const draw = (e) => {
+    e.preventDefault()
     if (drawing && !erase) {
         context.lineWidth = width.value
         context.lineCap = 'round'
-        context.lineTo(e.clientX, e.clientY)
+        context.lineJoin = 'round'
+        drawLine(e)
         context.stroke()
         context.beginPath()
-        context.lineTo(e.clientX, e.clientY)
+        drawLine(e)
         context.strokeStyle = color.value
     } else if (drawing && erase) {
         // context.clearRect(e.clientX, e.clientY, width.value, width.value)
         context.lineWidth = width.value
         context.lineCap = 'round'
-        context.lineTo(e.clientX, e.clientY)
+        drawLine(e)
         context.stroke()
         context.beginPath()
-        context.lineTo(e.clientX, e.clientY)
+        drawLine(e)
         context.strokeStyle = 'white'
     }
 }
@@ -72,3 +74,17 @@ canvas.addEventListener('touchmove', draw)
 
 eraser.addEventListener('click', () => erase = true)
 pen.addEventListener('click', () => erase = false)
+
+const is_touch = () => {
+    return ('ontouchstart' in window) ||
+        (navigator.maxTouchPoints > 0) ||
+        (navigator.msMaxTouchPoints > 0);
+}
+
+const drawLine = (e)=> {
+    if (is_touch()) { 
+        context.lineTo(e.touches[0].clientX, e.touches[0].clientY)
+    } else {
+        context.lineTo(e.clientX, e.clientY)
+    }
+}
