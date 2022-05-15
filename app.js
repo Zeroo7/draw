@@ -27,7 +27,7 @@ const size = () => {
     canvas.height = window.innerHeight
 }
 size()
-window.addEventListener('resize', size)
+window.addEventListener('resize', ()=> {if (!is_touch()) size()})
 
 const draw = (e) => {
     e.preventDefault()
